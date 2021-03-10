@@ -16,7 +16,7 @@
     var address = '';
     geolocation.getCurrentPosition(function (r) {
       address = r.address;
-      console.log(address);  //address.province是省  address.city是市区
+      console.log(address);  //address.province是省   address.city是市区
       alert(window.JSON.stringify(address.city));
     }, {
       enableHighAccuracy: true
