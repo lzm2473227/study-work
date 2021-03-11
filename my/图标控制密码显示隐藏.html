@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://cdn.bootcss.com/vue/2.5.9/vue.min.js"></script> -->
+  <style>
+    .inp-id .icon-img {
+      box-sizing: border-box;
+      float: left;
+      width: 40px;
+      height: 40px;
+      background: rgb(233, 236, 239);
+      border-right: 1px solid #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon-show {
+      box-sizing: border-box;
+      float: right;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inp-id {
+      box-sizing: border-box;
+      width: 320px;
+      height: 42px;
+      border: 1px solid #ddd;
+      margin-top: 27px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    input {
+      box-sizing: border-box;
+      margin-bottom: 1px;
+      outline: none;
+      height: 40px;
+      padding-left: 10px;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inp-id">
+    <div class="icon-img">
+      <img src="./img/ic-密码.png" alt="密码" />
+    </div>
+    <input type="password" placeholder="请输入动态密码" name="pass" id="pass" />
+    <div class="icon-show" v-if="isShow" @click="show">
+      <img id="show" src="./img/ic-隐藏密码.png" alt="隐藏密码" />
+    </div>
+    <div class="icon-show" v-if="!isShow" @click="hide">
+      <img id="hide" src="./img/ic-显示密码.png" alt="显示密码" />
+    </div>
+  </div>
+
+  <script>
+    export default {
+      name: "Login",
+      data() {
+        return {
+          isShow: true,
+        };
+      },
+      methods: {
+        show() {
+          var pass = document.getElementById("pass");
+          pass.type = "text";
+          console.log(pass);
+          this.isShow = false;
+        },
+        hide() {
+          var pass = document.getElementById("pass");
+          pass.type = "password";
+          console.log(pass);
+          this.isShow = true;
+          let imgs = document.getElementById("hide");
+          console.log(imgs);
+        },
+      },
+    };
+  </script>
+</body>
+
+</html>
